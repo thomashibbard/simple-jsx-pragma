@@ -1,5 +1,12 @@
 import { constants, helpers } from "Utils";
 
+export class ClassComponent {
+  static __SHOULD_CALL_CLASS_CONSTRUCTOR__ = true;
+  constructor({ props, children }) {
+    this.props = { ...props, children };
+  }
+}
+
 export default class V {
   static Fragment = constants.FRAGMENT;
   static propertiesToFilter = ["className", "style"];
@@ -7,7 +14,15 @@ export default class V {
   static create(node, props, ...children) {
     children = helpers.flattenDeep(children);
     if (typeof node === "function") {
-      return node();
+      if (
+        node.prototype.render &&
+        typeof node.prototype.render === "function" &&
+        node.__SHOULD_CALL_CLASS_CONSTRUCTOR__ === true
+      ) {
+        return new node({ props, children }).render();
+      } else {
+        return node(props);
+      }
     } else {
       if (node === constants.FRAGMENT) {
         const fragment = document.createDocumentFragment();
@@ -57,11 +72,11 @@ export default class V {
     }
   }
 
-  static extractEventHandlers([propKey, propVal]) {
+  static extractEventHandlers([propKey]) {
     return this.eventHandlerRegExp.test(propKey);
   }
 
-  static removePropsThatShouldNotBeInlined([propKey, propVal]) {
+  static removePropsThatShouldNotBeInlined([propKey]) {
     return (
       !this.propertiesToFilter.includes(propKey) &&
       !this.eventHandlerRegExp.test(propKey)

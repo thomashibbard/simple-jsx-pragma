@@ -29,7 +29,7 @@ const menuItemsAsObject = {
   }
 };
 
-export default () => {
+export default props => {
   return (
     <header style={headerStyles}>
       <nav className="nav">

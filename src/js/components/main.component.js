@@ -4,6 +4,7 @@ import V from "Lib/v";
 
 import Header from "./header.component";
 import Footer from "./footer.component";
+import Button from "./button.component";
 
 const fruits = [
   { name: "apple", color: "red", shape: "round" },
@@ -26,6 +27,15 @@ const SimpleStringOfText = (
 );
 
 const definitionList = <dl>{FruitDescriptions}</dl>;
+
+const MyCustomButton = (
+  <Button text="Button text" style={{ "margin-top": "1.5rem" }}>
+    <strong>
+      <em>Click this Button</em>
+    </strong>
+  </Button>
+);
+
 function handleClick(event) {
   console.log("handleClick", this, event);
 }
@@ -38,11 +48,12 @@ function handleMouseLeave(event) {
 export default () => {
   return (
     <>
-      <Header></Header>
+      <Header headerProp={{ my: "data", arr: [1, 2, 33] }}></Header>
       <main>
         <p>
           Paragaph content <small>{SimpleStringOfText}</small>
         </p>
+
         <button
           myProp={{ some: "json", data: [1, 2, 3, 4] }}
           style={{ color: "red", border: "3px double grey" }}
@@ -53,6 +64,7 @@ export default () => {
         >
           Click this
         </button>
+        <MyCustomButton></MyCustomButton>
         <div
           style={{
             "display": "flex",
@@ -90,7 +102,7 @@ export default () => {
           </div>
         </div>
       </main>
-      <Footer></Footer>
+      <Footer footerProp={{ fname: "thomas" }}>></Footer>
     </>
   );
 };
