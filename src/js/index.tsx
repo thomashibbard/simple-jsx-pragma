@@ -1,10 +1,10 @@
 import "core-js/stable";
-// import "regenerator-runtime/runtime";
 
-/** @jsx v.create */
-/** @jsxFrag v.Fragment */
-import v, { render } from "Lib/v";
+/** @jsx V.create */
+/** @jsxFrag V.Fragment */
+import V, { render } from "@V";
+// console.log({ V, render });
 
 import Main from "./components/main.component";
 
-render(document.getElementById("app"), <Main />);
+render(document.getElementById("app"), <h1>hi</h1>);

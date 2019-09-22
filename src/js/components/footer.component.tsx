@@ -1,6 +1,6 @@
 /** @jsx V.create */
 /** @jsxFrag V.Fragment */
-import V from "Lib/v";
+import V from "@V";
 import { isAbsolute } from "path";
 
 export default props => {

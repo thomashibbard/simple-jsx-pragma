@@ -1,7 +1,7 @@
 /** @jsx V.create */
 /** @jsxFrag V.Fragment */
 
-import V from "Lib/v";
+import V from "@V";
 
 const headerStyles = {
   background: "#797270"

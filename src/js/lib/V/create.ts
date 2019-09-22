@@ -1,13 +1,6 @@
-import { constants, helpers } from "Utils";
+import { constants, helpers } from "@Utils/index.ts";
 
-export class ClassComponent {
-  static __SHOULD_CALL_CLASS_CONSTRUCTOR__ = true;
-  constructor({ props, children }) {
-    this.props = { ...props, children };
-  }
-}
-
-export default class V {
+export class V {
   static Fragment = constants.FRAGMENT;
   static propertiesToFilter = ["className", "style"];
   static eventHandlerRegExp = /(on)([A-Z]\w+)/;
@@ -86,9 +79,4 @@ export default class V {
   static isFirstLetterCapitalized(nodeName) {
     return /[A-Z]/.test(nodeName);
   }
-}
-
-export function render(mountNode, element) {
-  mountNode.innerHTML = "";
-  mountNode.append(element);
 }

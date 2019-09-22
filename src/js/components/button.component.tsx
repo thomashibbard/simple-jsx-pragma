@@ -1,9 +1,9 @@
 /** @jsx V.create */
 /** @jsxFrag V.Fragment */
 
-import V, { ClassComponent } from "Lib/v";
-
-export default class Button extends ClassComponent {
+import V, { Component } from "@V";
+console.log({ V });
+export default class Button extends Component {
   constructor(props) {
     super(props);
   }

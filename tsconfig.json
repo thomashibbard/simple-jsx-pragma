@@ -1,0 +1,18 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "declaration": true,
+    "sourceMap": true
+  },
+  "baseUrl": "src",
+  "paths": {
+    "@Lib/*": ["js/Lib/*"],
+    "@Utils/*": ["js/Utils/*"],
+    "@V": ["js/V/index.ts"]
+  }
+}

@@ -1,7 +1,7 @@
 /** @jsx V.create */
 /** @jsxFrag V.Fragment */
-import V from "Lib/v";
-
+import V from "@V";
+console.log({ V });
 import Header from "./header.component";
 import Footer from "./footer.component";
 import Button from "./button.component";
@@ -12,13 +12,13 @@ const fruits = [
   { name: "orange", color: "orange", shape: "round" }
 ];
 const FruitDescriptions = fruits.map(fruit => (
-  <>
+  <V.Fragment>
     <dt>{fruit.name}: </dt>
     <dd style={{ background: "LightGrey", padding: "0.3rem 0.75rem" }}>
       is <span style={{ color: fruit.color }}>{fruit.color}</span> and{" "}
       {fruit.shape}
     </dd>
-  </>
+  </V.Fragment>
 ));
 console.log("FruitDescriptions", FruitDescriptions);
 const SimpleStringOfText = (
