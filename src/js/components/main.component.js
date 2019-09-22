@@ -26,7 +26,15 @@ const SimpleStringOfText = (
 );
 
 const definitionList = <dl>{FruitDescriptions}</dl>;
-
+function handleClick(event) {
+  console.log("handleClick", this, event);
+}
+function handleMouseEnter(event) {
+  console.log("handleMouseEnter", this, event);
+}
+function handleMouseLeave(event) {
+  console.log("handleMouseLeave");
+}
 export default () => {
   return (
     <>
@@ -35,6 +43,16 @@ export default () => {
         <p>
           Paragaph content <small>{SimpleStringOfText}</small>
         </p>
+        <button
+          myProp={{ some: "json", data: [1, 2, 3, 4] }}
+          style={{ color: "red", border: "3px double grey" }}
+          className="btn btn-primary"
+          onClick={handleClick}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          Click this
+        </button>
         <div
           style={{
             "display": "flex",
