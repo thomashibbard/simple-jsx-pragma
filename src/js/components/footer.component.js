@@ -14,7 +14,6 @@ export default props => {
         "background": "CornFlowerBlue",
         "color": "white",
         "display": "flex",
-        "padding": "0.75rem",
         "align-items": "center",
         "justify-content": "center"
       }}

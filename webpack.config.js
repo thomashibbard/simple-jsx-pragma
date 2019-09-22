@@ -1,6 +1,10 @@
 const { resolve } = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
+const NODE_ENV = process.env.NODE_EN;
+const IS_PRODUCTION = NODE_ENV === "production";
+const IS_DEVELOPMENT = !IS_PRODUCTION;
+
 const paths = {
   src: resolve(__dirname, "src"),
   dist: resolve(__dirname, "dist")
@@ -8,11 +12,12 @@ const paths = {
 
 module.exports = {
   context: __dirname,
-  devtool: "source-map",
+  devtool: IS_DEVELOPMENT ? "source-map" : false,
+  mode: NODE_ENV,
   entry: resolve(paths.src, "js", "index.js"),
   output: {
     path: paths.dist,
-    filename: "bundle.js"
+    filename: "bundle-[hash].js"
   },
   resolve: {
     alias: {
@@ -34,6 +39,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
+      title: "Simple JSX Pragma",
       template: "./src/index.html",
       filename: "./index.html"
     })

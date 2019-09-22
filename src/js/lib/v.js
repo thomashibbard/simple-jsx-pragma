@@ -89,5 +89,6 @@ export default class V {
 }
 
 export function render(mountNode, element) {
+  mountNode.innerHTML = "";
   mountNode.append(element);
 }

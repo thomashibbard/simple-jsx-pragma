@@ -20,6 +20,7 @@ const FruitDescriptions = fruits.map(fruit => (
     </dd>
   </>
 ));
+console.log("FruitDescriptions", FruitDescriptions);
 const SimpleStringOfText = (
   <span style={{ color: "grey" }}>
     &nbsp;&nbsp;A string of text in its own variable
@@ -45,7 +46,7 @@ function handleMouseEnter(event) {
 function handleMouseLeave(event) {
   console.log("handleMouseLeave");
 }
-export default () => {
+export default props => {
   return (
     <>
       <Header headerProp={{ my: "data", arr: [1, 2, 33] }}></Header>
